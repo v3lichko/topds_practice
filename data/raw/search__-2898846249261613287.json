@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "collected_at": "2025-12-17T22:25:55Z",
+    "url": "https://api.github.com/search/issues?q=repo%3Ajupyter%2Fnotebook+type%3Apr+is%3Amerged+merged%3A2024-12-18..2025-12-17&per_page=1",
+    "params": null,
+    "status_code": 200,
+    "rate_limit": {
+      "limit": "10",
+      "remaining": "5",
+      "reset": "1766010413",
+      "resource": "search"
+    }
+  },
+  "data": {
+    "total_count": 102,
+    "incomplete_results": false,
+    "items": [
+      {
+        "url": "https://api.github.com/repos/jupyter/notebook/issues/7788",
+        "repository_url": "https://api.github.com/repos/jupyter/notebook",
+        "labels_url": "https://api.github.com/repos/jupyter/notebook/issues/7788/labels{/name}",
+        "comments_url": "https://api.github.com/repos/jupyter/notebook/issues/7788/comments",
+        "events_url": "https://api.github.com/repos/jupyter/notebook/issues/7788/events",
+        "html_url": "https://github.com/jupyter/notebook/pull/7788",
+        "id": 3736613841,
+        "node_id": "PR_kwDOAgGDYc65QByf",
+        "number": 7788,
+        "title": "Bump systeminformation from 5.23.14 to 5.27.14 in /ui-tests",
+        "user": {
+          "login": "dependabot[bot]",
+          "id": 49699333,
+          "node_id": "MDM6Qm90NDk2OTkzMzM=",
+          "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/dependabot%5Bbot%5D",
+          "html_url": "https://github.com/apps/dependabot",
+          "followers_url": "https://api.github.com/users/dependabot%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/dependabot%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/dependabot%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/dependabot%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/dependabot%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/dependabot%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/dependabot%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/dependabot%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/dependabot%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "labels": [
+          {
+            "id": 505774348,
+            "node_id": "MDU6TGFiZWw1MDU3NzQzNDg=",
+            "url": "https://api.github.com/repos/jupyter/notebook/labels/maintenance",
+            "name": "maintenance",
+            "color": "fbca04",
+            "default": false,
+            "description": ""
+          },
+          {
+            "id": 3904024773,
+            "node_id": "LA_kwDOAgGDYc7osrDF",
+            "url": "https://api.github.com/repos/jupyter/notebook/labels/dependencies",
+            "name": "dependencies",
+            "color": "0366d6",
+            "default": false,
+            "description": "Pull requests that update a dependency file"
+          },
+          {
+            "id": 4777700935,
+            "node_id": "LA_kwDOAgGDYc8AAAABHMXuRw",
+            "url": "https://api.github.com/repos/jupyter/notebook/labels/javascript",
+            "name": "javascript",
+            "color": "168700",
+            "default": false,
+            "description": "Pull requests that update Javascript code"
+          }
+        ],
+        "state": "closed",
+        "locked": false,
+        "assignee": null,
+        "assignees": [],
+        "milestone": null,
+        "comments": 1,
+        "created_at": "2025-12-16T22:48:33Z",
+        "updated_at": "2025-12-17T06:58:45Z",
+        "closed_at": "2025-12-17T06:58:43Z",
+        "author_association": "CONTRIBUTOR",
+        "type": null,
+        "active_lock_reason": null,
+        "draft": false,
+        "pull_request": {
+          "url": "https://api.github.com/repos/jupyter/notebook/pulls/7788",
+          "html_url": "https://github.com/jupyter/notebook/pull/7788",
+          "diff_url": "https://github.com/jupyter/notebook/pull/7788.diff",
+          "patch_url": "https://github.com/jupyter/notebook/pull/7788.patch",
+          "merged_at": "2025-12-17T06:58:43Z"
+        },
+        "body": "Bumps [systeminformation](https://github.com/sebhildebrandt/systeminformation) from 5.23.14 to 5.27.14.\n<details>\n<summary>Changelog</summary>\n<p><em>Sourced from <a href=\"https://github.com/sebhildebrandt/systeminformation/blob/master/CHANGELOG.md\">systeminformation's changelog</a>.</em></p>\n<blockquote>\n<h1>Changelog</h1>\n<h2>Major Changes - Version 5</h2>\n<h4>New Functions</h4>\n<ul>\n<li><code>audio()</code> detailed audio information</li>\n<li><code>bluetoothDevices()</code> detailed information detected bluetooth devices</li>\n<li><code>dockerImages()</code> detailed information docker images</li>\n<li><code>dockerVolumes()</code> detailed information docker volumes</li>\n<li><code>printers()</code> detailed printer information</li>\n<li><code>usb()</code> detailed USB information</li>\n<li><code>wifiInterfaces()</code> detected Wi-Fi interfaces</li>\n<li><code>wifiConnections()</code> active Wi-Fi connections</li>\n</ul>\n<h4>Breaking Changes</h4>\n<p><strong>Be aware</strong>, that the new version 5.x <strong>is NOT fully backward compatible</strong> to\nversion 4.x ...</p>\n<p>We had to make <strong>several interface changes</strong> to keep systeminformation as\nconsistent as possible. We highly\n<a href=\"https://systeminformation.io/changes.html\">recommend to go through the complete list</a>\nand adapt your own code to be again compatible to the new version 5.</p>\n<table>\n<thead>\n<tr>\n<th>Function</th>\n<th>Old</th>\n<th>New (V5)</th>\n<th>Comments</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>unsupported values</td>\n<td>-1</td>\n<td>null</td>\n<td>values which are unknown or<!-- raw HTML omitted -->unsupported on platform</td>\n</tr>\n<tr>\n<td><code>battery()</code></td>\n<td>hasbattery<!-- raw HTML omitted -->cyclecount<!-- raw HTML omitted -->ischarging<!-- raw HTML omitted -->designedcapacity<!-- raw HTML omitted -->maxcapacity<!-- raw HTML omitted -->acconnected<!-- raw HTML omitted -->timeremaining</td>\n<td>hasBattery<!-- raw HTML omitted -->cycleCount<!-- raw HTML omitted -->isCharging<!-- raw HTML omitted -->designedCapacity<!-- raw HTML omitted -->maxCapacity<!-- raw HTML omitted -->acConnected<!-- raw HTML omitted -->timeRemaining</td>\n<td>pascalCase conformity</td>\n</tr>\n<tr>\n<td><code>blockDevices()</code></td>\n<td>fstype</td>\n<td>fsType</td>\n<td>pascalCase conformity</td>\n</tr>\n<tr>\n<td><code>cpu()</code></td>\n<td>speedmin<!-- raw HTML omitted -->speedmax</td>\n<td>speedMin<!-- raw HTML omitted -->speedMax</td>\n<td>pascalCase conformity</td>\n</tr>\n<tr>\n<td><code>cpu().speed</code><!-- raw HTML omitted --><code>cpu().speedMin</code><!-- raw HTML omitted --><code>cpu().speedMax</code></td>\n<td>string values</td>\n<td>now returning<!-- raw HTML omitted -->numerical values</td>\n<td>better value handling</td>\n</tr>\n<tr>\n<td><code>cpuCurrentspeed()</code></td>\n<td></td>\n<td>cpuCurrentSpeed()</td>\n<td>function name changed<!-- raw HTML omitted -->pascalCase conformity</td>\n</tr>\n<tr>\n<td><code>currentLoad()</code></td>\n<td>avgload<!-- raw HTML omitted -->currentload<!-- raw HTML omitted -->currentload_user<!-- raw HTML omitted -->currentload_system<!-- raw HTML omitted -->currentload_nice<!-- raw HTML omitted -->currentload_idle<!-- raw HTML omitted -->currentload_irq<!-- raw HTML omitted -->raw_currentload</td>\n<td>avgLoad<!-- raw HTML omitted -->currentLoad<!-- raw HTML omitted -->currentLoadUser<!-- raw HTML omitted -->currentLoadSystem<!-- raw HTML omitted -->currentLoadNice<!-- raw HTML omitted -->currentLoadIdle<!-- raw HTML omitted -->currentLoadIrq<!-- raw HTML omitted -->rawCurrentLoad</td>\n<td>pascalCase conformity</td>\n</tr>\n<tr>\n<td><code>dockerContainerStats()</code></td>\n<td>mem_usage<!-- raw HTML omitted -->mem_limit<!-- raw HTML omitted -->mem_percent<!-- raw HTML omitted -->cpu_percent<!-- raw HTML omitted -->cpu_stats<!-- raw HTML omitted -->precpu_stats<!-- raw HTML omitted -->memory_stats</td>\n<td>memUsage<!-- raw HTML omitted -->memLimit<!-- raw HTML omitted -->memPercent<!-- raw HTML omitted -->cpuPercent<!-- raw HTML omitted -->cpuStats<!-- raw HTML omitted -->precpuStats<!-- raw HTML omitted -->memoryStats</td>\n<td>pascalCase conformity</td>\n</tr>\n<tr>\n<td><code>dockerContainerProcesses()</code></td>\n<td>pid_host</td>\n<td>pidHost</td>\n<td>pascalCase conformity</td>\n</tr>\n<tr>\n<td><code>graphics().display</code></td>\n<td>pixeldepth<!-- raw HTML omitted -->resolutionx<!-- raw HTML omitted -->resolutiony<!-- raw HTML omitted -->sizex<!-- raw HTML omitted -->sizey</td>\n<td>pixelDepth<!-- raw HTML omitted -->resolutionX<!-- raw HTML omitted -->resolutionY<!-- raw HTML omitted -->sizeX<!-- raw HTML omitted -->sizeY</td>\n<td>pascalCase conformity</td>\n</tr>\n<tr>\n<td><code>networkConnections()</code></td>\n<td>localaddress<!-- raw HTML omitted -->localport<!-- raw HTML omitted -->peeraddress<!-- raw HTML omitted -->peerport</td>\n<td>localAddress<!-- raw HTML omitted -->localPort<!-- raw HTML omitted -->peerAddress<!-- raw HTML omitted -->peerPort</td>\n<td>pascalCase conformity</td>\n</tr>\n<tr>\n<td><code>networkInterfaces()</code></td>\n<td>carrier_changes</td>\n<td>carrierChanges</td>\n<td>pascalCase conformity</td>\n</tr>\n<tr>\n<td><code>processes()</code></td>\n<td>mem_vsz<!-- raw HTML omitted -->mem_rss<!-- raw HTML omitted -->pcpu<!-- raw HTML omitted -->pcpuu<!-- raw HTML omitted -->pcpus<!-- raw HTML omitted -->pmem</td>\n<td>memVsz<!-- raw HTML omitted -->memRss<!-- raw HTML omitted -->cpu<!-- raw HTML omitted -->cpuu<!-- raw HTML omitted -->cpus<!-- raw HTML omitted -->mem</td>\n<td>pascalCase conformity<!-- raw HTML omitted -->renamed attributes</td>\n</tr>\n<tr>\n<td><code>processLoad()</code></td>\n<td>result as object</td>\n<td>result as array of objects</td>\n<td>function now allows to provide more than<!-- raw HTML omitted -->one process (as a comma separated list)</td>\n</tr>\n<tr>\n<td><code>services()</code></td>\n<td>pcpu<!-- raw HTML omitted -->pmem</td>\n<td>cpu<!-- raw HTML omitted -->mem</td>\n<td>renamed attributes</td>\n</tr>\n<tr>\n<td><code>vbox()</code></td>\n<td>HPET<!-- raw HTML omitted -->PAE<!-- raw HTML omitted -->APIC<!-- raw HTML omitted -->X2APIC<!-- raw HTML omitted -->ACPI<!-- raw HTML omitted -->IOAPIC<!-- raw HTML omitted -->biosAPICmode<!-- raw HTML omitted -->TRC</td>\n<td>hpet<!-- raw HTML omitted -->pae<!-- raw HTML omitted -->apic<!-- raw HTML omitted -->x2Apic<!-- raw HTML omitted -->acpi<!-- raw HTML omitted -->ioApic<!-- raw HTML omitted -->biosApicMode<!-- raw HTML omitted -->rtc</td>\n<td>pascalCase conformity</td>\n</tr>\n</tbody>\n</table>\n<h4>Other Improvements and Changes</h4>\n<ul>\n<li><code>baseboard()</code>: added memMax, memSlots</li>\n<li><code>bios()</code>: added language and features (linux)</li>\n<li><code>blockDevices()</code> added raid group member (linux)</li>\n<li><code>cpu()</code>: extended AMD processor list</li>\n</ul>\n<!-- raw HTML omitted -->\n</blockquote>\n<p>... (truncated)</p>\n</details>\n<details>\n<summary>Commits</summary>\n<ul>\n<li><a href=\"https://github.com/sebhildebrandt/systeminformation/commit/8455dcac0873f3b096d1b40eee9de257e5fa4fce\"><code>8455dca</code></a> 5.27.14</li>\n<li><a href=\"https://github.com/sebhildebrandt/systeminformation/commit/c52f9fd07fef42d2d8e8c66f75b42178da701c68\"><code>c52f9fd</code></a> fsSize() fix drive sanitation (windows)</li>\n<li><a href=\"https://github.com/sebhildebrandt/systeminformation/commit/d3b03e973b6157a8ef0a3ed57868f2309cd97df8\"><code>d3b03e9</code></a> 5.27.13</li>\n<li><a href=\"https://github.com/sebhildebrandt/systeminformation/commit/7a94bc11273e82bdce1b4a4d544a73261455b83a\"><code>7a94bc1</code></a> cpuCurrentSpeed() fix hasOwnProperty</li>\n<li><a href=\"https://github.com/sebhildebrandt/systeminformation/commit/5b631999af680a9e9c2ce08d7db3ead8944c3f66\"><code>5b63199</code></a> 5.27.12</li>\n<li><a href=\"https://github.com/sebhildebrandt/systeminformation/commit/647d778c5f2aa69099e043397ab890c3b236fb6b\"><code>647d778</code></a> networkConnections() fix pid issue (macOS)</li>\n<li><a href=\"https://github.com/sebhildebrandt/systeminformation/commit/c6e8ae960a19af63788bcecdac7e1a845648e38b\"><code>c6e8ae9</code></a> 5.27.11</li>\n<li><a href=\"https://github.com/sebhildebrandt/systeminformation/commit/9eb40dfe0454a5ef2695ccee8b31b2fc4acbb88f\"><code>9eb40df</code></a> system() added latest mac studio versions (macOS)</li>\n<li><a href=\"https://github.com/sebhildebrandt/systeminformation/commit/114dc819221b317384dbdcbd7b1b28e624ee1f9e\"><code>114dc81</code></a> 5.27.10</li>\n<li><a href=\"https://github.com/sebhildebrandt/systeminformation/commit/53a7d0bdc5d4aef24a2814d50613781b674280b8\"><code>53a7d0b</code></a> powerShell() adapted params (windows)</li>\n<li>Additional commits viewable in <a href=\"https://github.com/sebhildebrandt/systeminformation/compare/v5.23.14...v5.27.14\">compare view</a></li>\n</ul>\n</details>\n<br />\n\n\n[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=systeminformation&package-manager=npm_and_yarn&previous-version=5.23.14&new-version=5.27.14)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)\n\nDependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.\n\n[//]: # (dependabot-automerge-start)\n[//]: # (dependabot-automerge-end)\n\n---\n\n<details>\n<summary>Dependabot commands and options</summary>\n<br />\n\nYou can trigger Dependabot actions by commenting on this PR:\n- `@dependabot rebase` will rebase this PR\n- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it\n- `@dependabot merge` will merge this PR after your CI passes on it\n- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it\n- `@dependabot cancel merge` will cancel a previously requested merge and block automerging\n- `@dependabot reopen` will reopen this PR if it is closed\n- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually\n- `@dependabot show <dependency name> ignore conditions` will show all of the ignore conditions of the specified dependency\n- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)\n- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)\n- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)\nYou can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/jupyter/notebook/network/alerts).\n\n</details>",
+        "reactions": {
+          "url": "https://api.github.com/repos/jupyter/notebook/issues/7788/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "timeline_url": "https://api.github.com/repos/jupyter/notebook/issues/7788/timeline",
+        "performed_via_github_app": null,
+        "state_reason": null,
+        "score": 1.0
+      }
+    ]
+  }
+}

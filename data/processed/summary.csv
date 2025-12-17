@@ -1,0 +1,4 @@
+repo,period_start,period_end,stars,forks,weekly_commits_52w_total,contributors_collected,issues_opened_period,issues_closed_period,issues_open_now,prs_opened_period,prs_merged_period,releases_in_period,avg_days_between_releases
+jupyter/notebook,2024-12-18,2025-12-17,12827,5541,123,659,81,110,1905,160,102,30,12.45
+jupyterlab/jupyterlab,2024-12-18,2025-12-17,14937,3846,569,674,418,443,2426,672,545,35,10.09
+microsoft/vscode,2024-12-18,2025-12-17,179735,36954,14853,1000,33519,30778,11502,12331,10236,39,9.56

@@ -1,0 +1,11 @@
+{
+  "collected_at": "2025-12-17T23:22:32Z",
+  "period_days": 364,
+  "data": {
+    "issues_opened_period": 418,
+    "issues_closed_period": 443,
+    "issues_open_now": 2426,
+    "prs_opened_period": 672,
+    "prs_merged_period": 545
+  }
+}

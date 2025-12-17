@@ -1,0 +1,616 @@
+{
+  "meta": {
+    "collected_at": "2025-12-17T23:22:35Z",
+    "url": "https://api.github.com/repositories/60374819/contributors?per_page=100&page=5&anon=true",
+    "params": null,
+    "status_code": 200,
+    "rate_limit": {
+      "limit": "60",
+      "remaining": "42",
+      "reset": "1766017340",
+      "resource": "core"
+    }
+  },
+  "data": [
+    {
+      "email": "roman@kalyakin.com",
+      "name": "Roman Kalyakin",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "34143233+robbypratl@users.noreply.github.com",
+      "name": "Robby Pratl",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "rtjsingh30@gmail.com",
+      "name": "Rituraj Singh",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "9092381+renegade334@users.noreply.github.com",
+      "name": "René",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "rvalieris@users.noreply.github.com",
+      "name": "Renan Valieris",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "rnetro@users.noreply.github.com",
+      "name": "Reese Netro",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "rayjohnbell0@gmail.com",
+      "name": "Ray Bell",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "raphael.marietan@hotmail.com",
+      "name": "Raphaël Mariétan",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "90966139+wzixiao@users.noreply.github.com",
+      "name": "Ran",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "39383228+rursprung@users.noreply.github.com",
+      "name": "Ralph Ursprung",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "pugiox@gmail.com",
+      "name": "Pugio",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "darshane@yahoo.com",
+      "name": "Priya Darshane",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "prateeksaxena@ufl.edu",
+      "name": "Prateek Saxena",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "145373453+prajyot-porje@users.noreply.github.com",
+      "name": "Prajyot Porje",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "piyushjain@duck.com",
+      "name": "Piyush Jain",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "peter@newton.cx",
+      "name": "Peter Williams",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "parente@gmail.com",
+      "name": "Peter Parente",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "pengqi@qiniu.com",
+      "name": "Peng Qi",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "olivier.borderies@gmail.com",
+      "name": "oscar6echo",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "odidev@puresoftware.com",
+      "name": "odidev",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "jqhuang11@gmail.com",
+      "name": "nycuni",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "44254521+nluetts@users.noreply.github.com",
+      "name": "nluetts",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "nguyenmanh1507@gmail.com",
+      "name": "nguyenmanh1507",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "mridsole@gmail.com",
+      "name": "mridsole",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "massaro.simone.it@gmail.com",
+      "name": "mone27",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "github@mrbb.org",
+      "name": "misterbeebee",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "73842934+milinm@users.noreply.github.com",
+      "name": "milinm",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "melissa.ferrari3@gmail.com",
+      "name": "mferrari3",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "meads@users.noreply.github.com",
+      "name": "meads",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "20720363+mbuet2ner@users.noreply.github.com",
+      "name": "mbuet2ner",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "martin@borus.de",
+      "name": "mborus",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "manavendra.199302058@muj.manipal.edu",
+      "name": "mavn",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "matttttb@gmail.com",
+      "name": "matt-bowers",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "mdh386@nyu.edu",
+      "name": "markhannel",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "markgreene74@users.noreply.github.com",
+      "name": "markgreene74",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "owenzhang1990@gmail.com",
+      "name": "manuzhang",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "logstar@users.noreply.github.com",
+      "name": "logstar",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "lacrosse91.ut@gmail.com",
+      "name": "lacrosse91",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "31422259+krinsman@users.noreply.github.com",
+      "name": "krinsman",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "164944919+yukiiii04@users.noreply.github.com",
+      "name": "yukiiii04",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "79028682+yasmin-bb@users.noreply.github.com",
+      "name": "yasmin-bb",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "71346927+xiaochen-db@users.noreply.github.com",
+      "name": "xiao.chen",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "xdhmoore@users.noreply.github.com",
+      "name": "xdhmoore",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "va@us.ibm.com",
+      "name": "va barbosa",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "unsystemizer@users.noreply.github.com",
+      "name": "unsystemizer",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "48298909+tuncbkose@users.noreply.github.com",
+      "name": "tuncbkose",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "91616041+tkrabel-db@users.noreply.github.com",
+      "name": "tkrabel-db",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "tom.nudell@smartwires.com",
+      "name": "smarttom",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "107453857+siddartha-10@users.noreply.github.com",
+      "name": "siddartha-10",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "122125386+sawickid@users.noreply.github.com",
+      "name": "sawickid",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "rvalieris@users.noreply.github.com",
+      "name": "rvalieris",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "leorobinovitch@gmail.com",
+      "name": "robinovitch61",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "33066940+rfox12@users.noreply.github.com",
+      "name": "rfox12",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "70897679+rccern@users.noreply.github.com",
+      "name": "rccern",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "47977131+pree-t@users.noreply.github.com",
+      "name": "pree-T",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "32247590+phil-zxx@users.noreply.github.com",
+      "name": "phil-zxx",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "43797956+pawel99k@users.noreply.github.com",
+      "name": "pawel99k",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "paul@pfish.zone",
+      "name": "paul fisher",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "petrosyan@gmail.com",
+      "name": "partev",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "99129760+paolocarinci@users.noreply.github.com",
+      "name": "paolocarinci",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "kilian.singer@quantumtechnology.info",
+      "name": "kiliansinger",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "david.hirschfeld@stanwell.com",
+      "name": "dhirschf",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "76983455+coriegulik@users.noreply.github.com",
+      "name": "coriegulik",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "zhaoyuting248@gmail.com",
+      "name": "claudia",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "c.su@live.ca",
+      "name": "ceesu",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "68961854+cccs-nik@users.noreply.github.com",
+      "name": "cccs-nik",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "bs.youness@gmail.com",
+      "name": "bsyouness",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "119066328+bsundaram1@users.noreply.github.com",
+      "name": "bsundaram1",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "bjoern@opentrash.org",
+      "name": "bjoernmeier",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "balamuruganvg@gmail.com",
+      "name": "balamuruganvg",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "azure-pipelines[bot]@users.noreply.github.com",
+      "name": "azure-pipelines[bot]",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "asteppke@users.noreply.github.com",
+      "name": "asteppke",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "ashna1jain@gmail.com",
+      "name": "ashna1jain",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "26653424+alirezaghey@users.noreply.github.com",
+      "name": "alirezaghey",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "algonell@gmail.com",
+      "name": "algonell",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "47183399+alfsuse@users.noreply.github.com",
+      "name": "alfsuse",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "athornton@gmail.com",
+      "name": "adam",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "35178591+linlol@users.noreply.github.com",
+      "name": "Ziyuan",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "9573586@qq.com",
+      "name": "Zhongsheng Ji",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "contact@zanie.dev",
+      "name": "Zanie Blue",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "zane.selvans@catalyst.coop",
+      "name": "Zane Selvans",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "106707235+zrottman@users.noreply.github.com",
+      "name": "Zach Rottman",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "kellyke@canva.com",
+      "name": "kellyyke",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "kaushalaaditya99@gmail.com",
+      "name": "kaushalaaditya99",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "1167575+josephrocca@users.noreply.github.com",
+      "name": "josephrocca",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "joel.ostblom@gmail.com",
+      "name": "joelostblom",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "50560042+jmk89@users.noreply.github.com",
+      "name": "jmk",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "jamesyang.yjm@alibaba-inc.com",
+      "name": "jamesyang.yjm",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "alexander.perlman@capitalone.com",
+      "name": "inn487",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "sakthivel.elango@linkedin.com",
+      "name": "ikiw",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "research@ifesca.de",
+      "name": "ifesca research team",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "aki.y.ishikawa@gmail.com",
+      "name": "i-aki-y",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "hj2339@columbia.edu",
+      "name": "hjoo",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "hefangshi@baidu.com",
+      "name": "hefangshi",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "34286755+hmed22@users.noreply.github.com",
+      "name": "hMED22",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "greenkeeper[bot]@users.noreply.github.com",
+      "name": "greenkeeper[bot]",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "91574842+gderocher@users.noreply.github.com",
+      "name": "gderocher",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "anisoara.ionela@gmail.com",
+      "name": "galathinius",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "faucct@gmail.com",
+      "name": "faucct",
+      "type": "Anonymous",
+      "contributions": 1
+    },
+    {
+      "email": "evanlinde@gmail.com",
+      "name": "evanlinde",
+      "type": "Anonymous",
+      "contributions": 1
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "collected_at": "2025-12-17T23:23:27Z",
+    "url": "https://api.github.com/search/issues?q=repo%3Amicrosoft%2Fvscode+type%3Apr+created%3A2024-12-18..2025-12-17&per_page=1",
+    "params": null,
+    "status_code": 200,
+    "rate_limit": {
+      "limit": "10",
+      "remaining": "6",
+      "reset": "1766013865",
+      "resource": "search"
+    }
+  },
+  "data": {
+    "total_count": 12331,
+    "incomplete_results": false,
+    "items": [
+      {
+        "url": "https://api.github.com/repos/microsoft/vscode/issues/284160",
+        "repository_url": "https://api.github.com/repos/microsoft/vscode",
+        "labels_url": "https://api.github.com/repos/microsoft/vscode/issues/284160/labels{/name}",
+        "comments_url": "https://api.github.com/repos/microsoft/vscode/issues/284160/comments",
+        "events_url": "https://api.github.com/repos/microsoft/vscode/issues/284160/events",
+        "html_url": "https://github.com/microsoft/vscode/pull/284160",
+        "id": 3740814002,
+        "node_id": "PR_kwDOAn8RLM65eLiB",
+        "number": 284160,
+        "title": "use v2 controller with old notebook prompt",
+        "user": {
+          "login": "amunger",
+          "id": 2019016,
+          "node_id": "MDQ6VXNlcjIwMTkwMTY=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/2019016?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/amunger",
+          "html_url": "https://github.com/amunger",
+          "followers_url": "https://api.github.com/users/amunger/followers",
+          "following_url": "https://api.github.com/users/amunger/following{/other_user}",
+          "gists_url": "https://api.github.com/users/amunger/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/amunger/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/amunger/subscriptions",
+          "organizations_url": "https://api.github.com/users/amunger/orgs",
+          "repos_url": "https://api.github.com/users/amunger/repos",
+          "events_url": "https://api.github.com/users/amunger/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/amunger/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "labels": [],
+        "state": "open",
+        "locked": false,
+        "assignee": null,
+        "assignees": [],
+        "milestone": null,
+        "comments": 0,
+        "created_at": "2025-12-17T23:20:21Z",
+        "updated_at": "2025-12-17T23:20:22Z",
+        "closed_at": null,
+        "author_association": "COLLABORATOR",
+        "type": null,
+        "active_lock_reason": null,
+        "draft": true,
+        "pull_request": {
+          "url": "https://api.github.com/repos/microsoft/vscode/pulls/284160",
+          "html_url": "https://github.com/microsoft/vscode/pull/284160",
+          "diff_url": "https://github.com/microsoft/vscode/pull/284160.diff",
+          "patch_url": "https://github.com/microsoft/vscode/pull/284160.patch",
+          "merged_at": null
+        },
+        "body": "<!-- Thank you for submitting a Pull Request. Please:\r\n* Read our Pull Request guidelines:\r\n  https://github.com/microsoft/vscode/wiki/How-to-Contribute#pull-requests\r\n* Associate an issue with the Pull Request.\r\n* Ensure that the code is up-to-date with the `main` branch.\r\n* Include a description of the proposed changes and how to test them.\r\n-->\r\nhttps://github.com/microsoft/vscode/issues/282015",
+        "reactions": {
+          "url": "https://api.github.com/repos/microsoft/vscode/issues/284160/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "timeline_url": "https://api.github.com/repos/microsoft/vscode/issues/284160/timeline",
+        "performed_via_github_app": null,
+        "state_reason": null,
+        "score": 1.0
+      }
+    ]
+  }
+}

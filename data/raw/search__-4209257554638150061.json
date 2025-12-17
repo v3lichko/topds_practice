@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "collected_at": "2025-12-17T22:25:54Z",
+    "url": "https://api.github.com/search/issues?q=repo%3Ajupyter%2Fnotebook+type%3Aissue+closed%3A2024-12-18..2025-12-17&per_page=1",
+    "params": null,
+    "status_code": 200,
+    "rate_limit": {
+      "limit": "10",
+      "remaining": "8",
+      "reset": "1766010413",
+      "resource": "search"
+    }
+  },
+  "data": {
+    "total_count": 110,
+    "incomplete_results": false,
+    "items": [
+      {
+        "url": "https://api.github.com/repos/jupyter/notebook/issues/7781",
+        "repository_url": "https://api.github.com/repos/jupyter/notebook",
+        "labels_url": "https://api.github.com/repos/jupyter/notebook/issues/7781/labels{/name}",
+        "comments_url": "https://api.github.com/repos/jupyter/notebook/issues/7781/comments",
+        "events_url": "https://api.github.com/repos/jupyter/notebook/issues/7781/events",
+        "html_url": "https://github.com/jupyter/notebook/issues/7781",
+        "id": 3720046796,
+        "node_id": "I_kwDOAgGDYc7du2jM",
+        "number": 7781,
+        "title": "Lowercase `O` keyboard shortcut selector is not specific enough - prevents typing in `input()`",
+        "user": {
+          "login": "krassowski",
+          "id": 5832902,
+          "node_id": "MDQ6VXNlcjU4MzI5MDI=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/5832902?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/krassowski",
+          "html_url": "https://github.com/krassowski",
+          "followers_url": "https://api.github.com/users/krassowski/followers",
+          "following_url": "https://api.github.com/users/krassowski/following{/other_user}",
+          "gists_url": "https://api.github.com/users/krassowski/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/krassowski/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/krassowski/subscriptions",
+          "organizations_url": "https://api.github.com/users/krassowski/orgs",
+          "repos_url": "https://api.github.com/users/krassowski/repos",
+          "events_url": "https://api.github.com/users/krassowski/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/krassowski/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "labels": [
+          {
+            "id": 197515306,
+            "node_id": "MDU6TGFiZWwxOTc1MTUzMDY=",
+            "url": "https://api.github.com/repos/jupyter/notebook/labels/bug",
+            "name": "bug",
+            "color": "fbca04",
+            "default": true,
+            "description": ""
+          },
+          {
+            "id": 4395547525,
+            "node_id": "LA_kwDOAgGDYc8AAAABBf67hQ",
+            "url": "https://api.github.com/repos/jupyter/notebook/labels/status:Needs%20Triage",
+            "name": "status:Needs Triage",
+            "color": "D3D985",
+            "default": false,
+            "description": "Applied to issues that need triage"
+          }
+        ],
+        "state": "closed",
+        "locked": false,
+        "assignee": null,
+        "assignees": [],
+        "milestone": {
+          "url": "https://api.github.com/repos/jupyter/notebook/milestones/59",
+          "html_url": "https://github.com/jupyter/notebook/milestone/59",
+          "labels_url": "https://api.github.com/repos/jupyter/notebook/milestones/59/labels",
+          "id": 14141298,
+          "node_id": "MI_kwDOAgGDYc4A18dy",
+          "number": 59,
+          "title": "7.5.x",
+          "description": "on-merge: backport to 7.5.x",
+          "creator": {
+            "login": "jtpio",
+            "id": 591645,
+            "node_id": "MDQ6VXNlcjU5MTY0NQ==",
+            "avatar_url": "https://avatars.githubusercontent.com/u/591645?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/jtpio",
+            "html_url": "https://github.com/jtpio",
+            "followers_url": "https://api.github.com/users/jtpio/followers",
+            "following_url": "https://api.github.com/users/jtpio/following{/other_user}",
+            "gists_url": "https://api.github.com/users/jtpio/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/jtpio/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/jtpio/subscriptions",
+            "organizations_url": "https://api.github.com/users/jtpio/orgs",
+            "repos_url": "https://api.github.com/users/jtpio/repos",
+            "events_url": "https://api.github.com/users/jtpio/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/jtpio/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "open_issues": 10,
+          "closed_issues": 8,
+          "state": "open",
+          "created_at": "2025-11-15T00:42:37Z",
+          "updated_at": "2025-12-17T07:29:32Z",
+          "due_on": null,
+          "closed_at": null
+        },
+        "comments": 1,
+        "created_at": "2025-12-11T16:12:05Z",
+        "updated_at": "2025-12-11T19:15:27Z",
+        "closed_at": "2025-12-11T19:15:26Z",
+        "author_association": "MEMBER",
+        "type": null,
+        "active_lock_reason": null,
+        "sub_issues_summary": {
+          "total": 0,
+          "completed": 0,
+          "percent_completed": 0
+        },
+        "issue_dependencies_summary": {
+          "blocked_by": 0,
+          "total_blocked_by": 0,
+          "blocking": 0,
+          "total_blocking": 0
+        },
+        "body": "## Description\n\n`O` keyboard shortcut selector is not specific enough - prevents typing in `input()`\n\n## Reproduce\n\nhttps://discourse.jupyter.org/t/keyboard-shortcut-o-interfering-with-input/38205/4\n\n## Expected behavior\n\nTyping in `input()` works\n\n## Context\n\n- Jupyter Notebook version: 7.5.0\n\nThis was added in\n- https://github.com/jupyter/notebook/pull/7709",
+        "reactions": {
+          "url": "https://api.github.com/repos/jupyter/notebook/issues/7781/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "timeline_url": "https://api.github.com/repos/jupyter/notebook/issues/7781/timeline",
+        "performed_via_github_app": null,
+        "state_reason": "completed",
+        "score": 1.0
+      }
+    ]
+  }
+}

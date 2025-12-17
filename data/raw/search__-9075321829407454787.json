@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "collected_at": "2025-12-17T23:22:22Z",
+    "url": "https://api.github.com/search/issues?q=repo%3Ajupyter%2Fnotebook+type%3Apr+created%3A2024-12-18..2025-12-17&per_page=1",
+    "params": null,
+    "status_code": 200,
+    "rate_limit": {
+      "limit": "10",
+      "remaining": "6",
+      "reset": "1766013801",
+      "resource": "search"
+    }
+  },
+  "data": {
+    "total_count": 160,
+    "incomplete_results": false,
+    "items": [
+      {
+        "url": "https://api.github.com/repos/jupyter/notebook/issues/7791",
+        "repository_url": "https://api.github.com/repos/jupyter/notebook",
+        "labels_url": "https://api.github.com/repos/jupyter/notebook/issues/7791/labels{/name}",
+        "comments_url": "https://api.github.com/repos/jupyter/notebook/issues/7791/comments",
+        "events_url": "https://api.github.com/repos/jupyter/notebook/issues/7791/events",
+        "html_url": "https://github.com/jupyter/notebook/pull/7791",
+        "id": 3740724426,
+        "node_id": "PR_kwDOAgGDYc65d4nk",
+        "number": 7791,
+        "title": "Fix broken image path in README",
+        "user": {
+          "login": "pratikshmalik05",
+          "id": 229530637,
+          "node_id": "U_kgDODa5cDQ",
+          "avatar_url": "https://avatars.githubusercontent.com/u/229530637?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/pratikshmalik05",
+          "html_url": "https://github.com/pratikshmalik05",
+          "followers_url": "https://api.github.com/users/pratikshmalik05/followers",
+          "following_url": "https://api.github.com/users/pratikshmalik05/following{/other_user}",
+          "gists_url": "https://api.github.com/users/pratikshmalik05/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/pratikshmalik05/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/pratikshmalik05/subscriptions",
+          "organizations_url": "https://api.github.com/users/pratikshmalik05/orgs",
+          "repos_url": "https://api.github.com/users/pratikshmalik05/repos",
+          "events_url": "https://api.github.com/users/pratikshmalik05/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/pratikshmalik05/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "labels": [],
+        "state": "open",
+        "locked": false,
+        "assignee": {
+          "login": "pratikshmalik05",
+          "id": 229530637,
+          "node_id": "U_kgDODa5cDQ",
+          "avatar_url": "https://avatars.githubusercontent.com/u/229530637?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/pratikshmalik05",
+          "html_url": "https://github.com/pratikshmalik05",
+          "followers_url": "https://api.github.com/users/pratikshmalik05/followers",
+          "following_url": "https://api.github.com/users/pratikshmalik05/following{/other_user}",
+          "gists_url": "https://api.github.com/users/pratikshmalik05/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/pratikshmalik05/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/pratikshmalik05/subscriptions",
+          "organizations_url": "https://api.github.com/users/pratikshmalik05/orgs",
+          "repos_url": "https://api.github.com/users/pratikshmalik05/repos",
+          "events_url": "https://api.github.com/users/pratikshmalik05/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/pratikshmalik05/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "assignees": [
+          {
+            "login": "pratikshmalik05",
+            "id": 229530637,
+            "node_id": "U_kgDODa5cDQ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/229530637?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/pratikshmalik05",
+            "html_url": "https://github.com/pratikshmalik05",
+            "followers_url": "https://api.github.com/users/pratikshmalik05/followers",
+            "following_url": "https://api.github.com/users/pratikshmalik05/following{/other_user}",
+            "gists_url": "https://api.github.com/users/pratikshmalik05/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/pratikshmalik05/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/pratikshmalik05/subscriptions",
+            "organizations_url": "https://api.github.com/users/pratikshmalik05/orgs",
+            "repos_url": "https://api.github.com/users/pratikshmalik05/repos",
+            "events_url": "https://api.github.com/users/pratikshmalik05/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/pratikshmalik05/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          }
+        ],
+        "milestone": null,
+        "comments": 2,
+        "created_at": "2025-12-17T22:29:31Z",
+        "updated_at": "2025-12-17T23:07:18Z",
+        "closed_at": null,
+        "author_association": "NONE",
+        "type": null,
+        "active_lock_reason": null,
+        "draft": false,
+        "pull_request": {
+          "url": "https://api.github.com/repos/jupyter/notebook/pulls/7791",
+          "html_url": "https://github.com/jupyter/notebook/pull/7791",
+          "diff_url": "https://github.com/jupyter/notebook/pull/7791.diff",
+          "patch_url": "https://github.com/jupyter/notebook/pull/7791.patch",
+          "merged_at": null
+        },
+        "body": "- Fixes broken image in README caused by incorrect path (`docs/` → `notebook/docs/`)\r\n- Image now renders correctly on GitHub\r\n- No issue required for small doc fixes",
+        "reactions": {
+          "url": "https://api.github.com/repos/jupyter/notebook/issues/7791/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "timeline_url": "https://api.github.com/repos/jupyter/notebook/issues/7791/timeline",
+        "performed_via_github_app": null,
+        "state_reason": null,
+        "score": 1.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "collected_at": "2025-12-17T22:26:03Z",
+    "url": "https://api.github.com/search/issues?q=repo%3Ajupyterlab%2Fjupyterlab+type%3Aissue+closed%3A2024-12-18..2025-12-17&per_page=1",
+    "params": null,
+    "status_code": 200,
+    "rate_limit": {
+      "limit": "10",
+      "remaining": "3",
+      "reset": "1766010413",
+      "resource": "search"
+    }
+  },
+  "data": {
+    "total_count": 443,
+    "incomplete_results": false,
+    "items": [
+      {
+        "url": "https://api.github.com/repos/jupyterlab/jupyterlab/issues/18214",
+        "repository_url": "https://api.github.com/repos/jupyterlab/jupyterlab",
+        "labels_url": "https://api.github.com/repos/jupyterlab/jupyterlab/issues/18214/labels{/name}",
+        "comments_url": "https://api.github.com/repos/jupyterlab/jupyterlab/issues/18214/comments",
+        "events_url": "https://api.github.com/repos/jupyterlab/jupyterlab/issues/18214/events",
+        "html_url": "https://github.com/jupyterlab/jupyterlab/issues/18214",
+        "id": 3731351305,
+        "node_id": "I_kwDOA5k_I87eZ-cJ",
+        "number": 18214,
+        "title": "Merging cells in `defer` mode results in out-of-order rendering",
+        "user": {
+          "login": "krassowski",
+          "id": 5832902,
+          "node_id": "MDQ6VXNlcjU4MzI5MDI=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/5832902?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/krassowski",
+          "html_url": "https://github.com/krassowski",
+          "followers_url": "https://api.github.com/users/krassowski/followers",
+          "following_url": "https://api.github.com/users/krassowski/following{/other_user}",
+          "gists_url": "https://api.github.com/users/krassowski/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/krassowski/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/krassowski/subscriptions",
+          "organizations_url": "https://api.github.com/users/krassowski/orgs",
+          "repos_url": "https://api.github.com/users/krassowski/repos",
+          "events_url": "https://api.github.com/users/krassowski/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/krassowski/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "labels": [
+          {
+            "id": 387307881,
+            "node_id": "MDU6TGFiZWwzODczMDc4ODE=",
+            "url": "https://api.github.com/repos/jupyterlab/jupyterlab/labels/bug",
+            "name": "bug",
+            "color": "fbca04",
+            "default": true,
+            "description": ""
+          }
+        ],
+        "state": "closed",
+        "locked": false,
+        "assignee": null,
+        "assignees": [],
+        "milestone": null,
+        "comments": 1,
+        "created_at": "2025-12-15T17:05:33Z",
+        "updated_at": "2025-12-17T14:52:31Z",
+        "closed_at": "2025-12-17T14:52:31Z",
+        "author_association": "MEMBER",
+        "type": null,
+        "active_lock_reason": null,
+        "sub_issues_summary": {
+          "total": 0,
+          "completed": 0,
+          "percent_completed": 0
+        },
+        "issue_dependencies_summary": {
+          "blocked_by": 0,
+          "total_blocked_by": 0,
+          "blocking": 0,
+          "total_blocking": 0
+        },
+        "body": "## Description\n\nThere is a race condition in the merge logic. Merging cell results in `defer` mode results in out-of-order rendering. The immediate reason for it is `siblingIndex` being `undefined` in `attachWidget()` method:\n\nhttps://github.com/jupyterlab/jupyterlab/blob/cf5029786133fac829dc094d5f5de16fa1cda729/packages/notebook/src/windowing.ts#L403-L411\n\n## Reproduce\n\nBefore merge (note that it has to be selected from bottom to the top)\n\n<img width=\"1073\" height=\"600\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/5ca5fafa-ba28-4929-a8ae-001ee9b0ea55\" />\n\nAfter merge\n\n<img width=\"1073\" height=\"493\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/1bd49ab7-d00b-45ee-8443-fd2c72f86e9a\" />\n\nincorrect `windowing-list-index`\n\n<img width=\"1605\" height=\"112\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/126ec855-5b68-4105-915e-128751c55c09\" />\n\n## Expected behavior\n\nCells render in the correct order.\n\n## Context\n\nThis does not appear to happen in `none`, `contentVisibility`, nor `full` windowing modes 🤔 \n\n- Browser and version: Chrome and Edge\n- JupyterLab version: 4.5.0",
+        "reactions": {
+          "url": "https://api.github.com/repos/jupyterlab/jupyterlab/issues/18214/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "timeline_url": "https://api.github.com/repos/jupyterlab/jupyterlab/issues/18214/timeline",
+        "performed_via_github_app": null,
+        "state_reason": "completed",
+        "score": 1.0
+      }
+    ]
+  }
+}

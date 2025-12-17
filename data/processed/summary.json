@@ -1,0 +1,53 @@
+{
+  "collected_at": "2025-12-17T23:23:33Z",
+  "data": [
+    {
+      "repo": "jupyter/notebook",
+      "period_start": "2024-12-18",
+      "period_end": "2025-12-17",
+      "stars": 12827,
+      "forks": 5541,
+      "weekly_commits_52w_total": 123,
+      "contributors_collected": 659,
+      "issues_opened_period": 81,
+      "issues_closed_period": 110,
+      "issues_open_now": 1905,
+      "prs_opened_period": 160,
+      "prs_merged_period": 102,
+      "releases_in_period": 30,
+      "avg_days_between_releases": 12.45
+    },
+    {
+      "repo": "jupyterlab/jupyterlab",
+      "period_start": "2024-12-18",
+      "period_end": "2025-12-17",
+      "stars": 14937,
+      "forks": 3846,
+      "weekly_commits_52w_total": 569,
+      "contributors_collected": 674,
+      "issues_opened_period": 418,
+      "issues_closed_period": 443,
+      "issues_open_now": 2426,
+      "prs_opened_period": 672,
+      "prs_merged_period": 545,
+      "releases_in_period": 35,
+      "avg_days_between_releases": 10.09
+    },
+    {
+      "repo": "microsoft/vscode",
+      "period_start": "2024-12-18",
+      "period_end": "2025-12-17",
+      "stars": 179735,
+      "forks": 36954,
+      "weekly_commits_52w_total": 14853,
+      "contributors_collected": 1000,
+      "issues_opened_period": 33519,
+      "issues_closed_period": 30778,
+      "issues_open_now": 11502,
+      "prs_opened_period": 12331,
+      "prs_merged_period": 10236,
+      "releases_in_period": 39,
+      "avg_days_between_releases": 9.56
+    }
+  ]
+}
