@@ -191,7 +191,7 @@ def paginated_get(
         link = parse_link_header(resp.headers.get("Link", ""))
         if "next" in link:
             next_url = link["next"]
-            next_params = None  # already encoded in URL
+            next_params = None #в url уже есть
         else:
             if next_params is None:
                 return
@@ -203,12 +203,11 @@ def paginated_get(
 
 
 # -----------------------------
-# GitHub “stats” (commit activity)
+# статы
 # -----------------------------
 def get_commit_activity_52w(session: requests.Session, repo: str, cfg: CollectorConfig) -> List[Dict[str, Any]]:
     """
     GET /repos/{owner}/{repo}/stats/commit_activity
-    Can return 202 Accepted while GitHub generates stats. We poll.
     """
     owner, name = repo.split("/", 1)
     url = f"{GITHUB_API}/repos/{owner}/{name}/stats/commit_activity"
@@ -219,7 +218,6 @@ def get_commit_activity_52w(session: requests.Session, repo: str, cfg: Collector
     for i in range(max_polls):
         resp = session.get(url, timeout=cfg.timeout_s)
         if resp.status_code == 202:
-            # GitHub is computing statistics
             logging.info("Stats not ready (202) for %s. Poll %s/%s, sleep %ss...", repo, i + 1, max_polls, sleep_s)
             time.sleep(sleep_s)
             sleep_s = min(sleep_s * 2, 30)
@@ -233,18 +231,16 @@ def get_commit_activity_52w(session: requests.Session, repo: str, cfg: Collector
         if isinstance(data, list):
             return data
         return []
-
     logging.warning("Commit activity stats not ready after polls for %s; returning empty.", repo)
     return []
 
 
 # -----------------------------
-# Search API counts (issues / PR)
+#pr/issueses
 # -----------------------------
 def search_total_count(session: requests.Session, q: str, cfg: CollectorConfig) -> int:
     """
     GET /search/issues?q=...
-    Returns JSON with total_count.
     """
     url = f"{GITHUB_API}/search/issues"
     data, resp = request_json(session, url, {"q": q, "per_page": 1}, cfg)
@@ -266,13 +262,10 @@ def period_range_days(cfg: CollectorConfig) -> Tuple[str, str]:
 
 def collect_issue_pr_counts(session: requests.Session, repo: str, cfg: CollectorConfig) -> Dict[str, int]:
     """
-    For last N days:
-    - issues_opened: created in range
-    - issues_closed: closed in range
-    - issues_open_now: current open issues (no time range)
-    Optional:
-    - prs_opened: PR created in range
-    - prs_merged: PR merged in range
+    за последние n дней:
+     issues_opened: created in range
+     issues_closed
+     issues_open_now
     """
     start, end = period_range_days(cfg)
 
@@ -282,8 +275,6 @@ def collect_issue_pr_counts(session: requests.Session, repo: str, cfg: Collector
     q_issues_opened = f"{base_repo} type:issue created:{start}..{end}"
     q_issues_closed = f"{base_repo} type:issue closed:{start}..{end}"
     q_issues_open_now = f"{base_repo} type:issue is:open"
-
-    # PRs (optional but useful)
     q_prs_opened = f"{base_repo} type:pr created:{start}..{end}"
     q_prs_merged = f"{base_repo} type:pr is:merged merged:{start}..{end}"
 
@@ -298,7 +289,7 @@ def collect_issue_pr_counts(session: requests.Session, repo: str, cfg: Collector
 
 
 # -----------------------------
-# Contributors + releases
+# контрибьюторы и релизы
 # -----------------------------
 def collect_contributors(session: requests.Session, repo: str, cfg: CollectorConfig) -> List[Dict[str, Any]]:
     owner, name = repo.split("/", 1)
@@ -352,9 +343,7 @@ def collect_releases(session: requests.Session, repo: str, cfg: CollectorConfig)
 
 def release_frequency_summary(releases: List[Dict[str, Any]], cfg: CollectorConfig) -> Dict[str, Any]:
     """
-    Quick summary for last N days:
-    - releases_in_period
-    - avg_days_between_releases (approx)
+    релизы за последние N дней и средний перерыв между ними
     """
     start_dt = utc_now() - timedelta(days=cfg.period_days)
     times: List[datetime] = []
@@ -362,7 +351,7 @@ def release_frequency_summary(releases: List[Dict[str, Any]], cfg: CollectorConf
         ts = r.get("published_at") or r.get("created_at")
         if not ts:
             continue
-        # GitHub timestamps: "YYYY-MM-DDTHH:MM:SSZ"
+        # гитхаб стандарттайм: "YYYY-MM-DDTHH:MM:SSZ"
         try:
             dt = datetime.fromisoformat(ts.replace("Z", "+00:00")).astimezone(timezone.utc)
         except Exception:
@@ -379,35 +368,31 @@ def release_frequency_summary(releases: List[Dict[str, Any]], cfg: CollectorConf
     avg = sum(deltas) / len(deltas)
     return {"releases_in_period": n, "avg_days_between_releases": round(avg, 2)}
 
+#метаданные
 
-# -----------------------------
-# Core collection per repo
-# -----------------------------
 def collect_repo(session: requests.Session, repo: str, cfg: CollectorConfig) -> Dict[str, Any]:
     owner, name = repo.split("/", 1)
     repo_slug = slugify_repo(repo)
-
-    # Repo meta
     url = f"{GITHUB_API}/repos/{owner}/{name}"
     repo_meta, resp = request_json(session, url, None, cfg)
     save_envelope(cfg.out_raw / f"repo__{repo_slug}.json", data=repo_meta, url=url, params=None, resp=resp)
 
-    # Weekly commits (52w)
+    # коммиты за последние 52 недели
     commit_activity = get_commit_activity_52w(session, repo, cfg)
     safe_write_json(cfg.out_raw / f"commit_activity_52w__{repo_slug}.json", {"collected_at": iso_z(utc_now()), "data": commit_activity})
 
-    # Issues/PR counts over period (Search API)
+    # Issues/PR колво
     counts = collect_issue_pr_counts(session, repo, cfg)
     safe_write_json(cfg.out_raw / f"counts__{repo_slug}.json", {"collected_at": iso_z(utc_now()), "period_days": cfg.period_days, "data": counts})
 
-    # Contributors list
+    # контрибьюторы
     contributors = collect_contributors(session, repo, cfg)
     safe_write_json(
         cfg.out_raw / f"contributors__{repo_slug}__ALL.json",
         {"collected_at": iso_z(utc_now()), "data": contributors},
     )
 
-    # Releases list (+ frequency quick summary)
+    # рилиз листы с статой
     releases = collect_releases(session, repo, cfg)
     safe_write_json(
         cfg.out_raw / f"releases__{repo_slug}__ALL.json",
@@ -415,7 +400,7 @@ def collect_repo(session: requests.Session, repo: str, cfg: CollectorConfig) -> 
     )
     rel_freq = release_frequency_summary(releases, cfg)
 
-    # Small processed summary row
+    #
     start, end = period_range_days(cfg)
     weekly_total = sum((w.get("total", 0) for w in commit_activity if isinstance(w, dict)))
     return {
@@ -487,7 +472,6 @@ def main() -> None:
         row = collect_repo(session, repo, cfg)
         summary_rows.append(row)
 
-    # quick processed summary
     write_summary_csv(summary_rows, cfg.out_processed / "summary.csv")
     safe_write_json(cfg.out_processed / "summary.json", {"collected_at": iso_z(utc_now()), "data": summary_rows})
 
