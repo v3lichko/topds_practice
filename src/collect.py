@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 import requests
+from dotenv import load_dotenv
 
 GITHUB_API = "https://api.github.com"
 DEFAULT_ACCEPT = "application/vnd.github+json"
@@ -36,6 +37,10 @@ class CollectorConfig:
     period_days: int
     timeout_s: int
     verbose: bool
+    sample_size: int = 0
+    sample_query: str = "is:public"
+    sample_min_stars: int = 1
+    sample_max_stars: int = 1_000_000
 
 
 def utc_now() -> datetime:
@@ -368,6 +373,178 @@ def release_frequency_summary(releases: List[Dict[str, Any]], cfg: CollectorConf
     avg = sum(deltas) / len(deltas)
     return {"releases_in_period": n, "avg_days_between_releases": round(avg, 2)}
 
+# -----------------------------
+# массовый сэмплинг репозиториев (для большого датасета, напр. 10000 сэмплов)
+# -----------------------------
+SEARCH_PER_PAGE = 100
+SEARCH_MAX_PAGES = 10  # GitHub Search API отдаёт максимум 1000 результатов (10 * 100) на один запрос
+SEARCH_MAX_RESULTS_PER_QUERY = 1000
+SEARCH_SLEEP_S = 1.2  # Search API лимитирован жёстче основного (30/мин с токеном), не спамим
+
+
+def repo_search_request(
+    session: requests.Session, cfg: CollectorConfig, params: Dict[str, Any]
+) -> Tuple[Any, requests.Response]:
+    url = f"{GITHUB_API}/search/repositories"
+    data, resp = request_json(session, url, params, cfg)
+    time.sleep(SEARCH_SLEEP_S)
+    return data, resp
+
+
+def repo_search_count(session: requests.Session, cfg: CollectorConfig, query: str) -> int:
+    data, resp = repo_search_request(session, cfg, {"q": query, "per_page": 1})
+    return int((data or {}).get("total_count", 0))
+
+
+def iter_star_range_buckets(
+    session: requests.Session,
+    cfg: CollectorConfig,
+    base_query: str,
+    lo: int,
+    hi: int,
+    cap: int = SEARCH_MAX_RESULTS_PER_QUERY,
+) -> Iterable[Tuple[int, int, int]]:
+    """
+    Search API отдаёт не больше 1000 результатов на запрос, поэтому диапазон
+    звёзд рекурсивно делим пополам, пока в каждом куске не станет <= cap репозиториев.
+
+    Лениво (генератор): всегда сначала до конца раскрывает "верхнюю" (более
+    звёздную) половину текущего диапазона, прежде чем трогать нижнюю — поэтому
+    бакеты приходят примерно от самых популярных репо к менее популярным.
+    Вызывающий код может прекратить обход (break) в любой момент, как только
+    наберёт нужное число сэмплов — оставшийся диапазон вообще не будет запрошен.
+    """
+    stack: List[Tuple[int, int]] = [(lo, hi)]
+
+    while stack:
+        cur_lo, cur_hi = stack.pop()
+        if cur_lo > cur_hi:
+            continue
+        q = f"{base_query} stars:{cur_lo}..{cur_hi}"
+        count = repo_search_count(session, cfg, q)
+        if count == 0:
+            continue
+        if count <= cap or cur_lo == cur_hi:
+            yield (cur_lo, cur_hi, count)
+            continue
+        mid = (cur_lo + cur_hi) // 2
+        stack.append((cur_lo, mid))       # нижняя половина - на потом
+        stack.append((mid + 1, cur_hi))   # верхняя половина - следующей (LIFO)
+
+
+def flatten_search_repo(item: Dict[str, Any]) -> Dict[str, Any]:
+    owner = item.get("owner") or {}
+    license_info = item.get("license") or {}
+    topics = item.get("topics") or []
+    return {
+        "id": item.get("id"),
+        "full_name": item.get("full_name"),
+        "owner_login": owner.get("login"),
+        "owner_type": owner.get("type"),
+        "description": (item.get("description") or "").replace("\n", " ").strip(),
+        "html_url": item.get("html_url"),
+        "language": item.get("language"),
+        "stargazers_count": item.get("stargazers_count"),
+        "forks_count": item.get("forks_count"),
+        "watchers_count": item.get("watchers_count"),
+        "open_issues_count": item.get("open_issues_count"),
+        "size_kb": item.get("size"),
+        "default_branch": item.get("default_branch"),
+        "created_at": item.get("created_at"),
+        "updated_at": item.get("updated_at"),
+        "pushed_at": item.get("pushed_at"),
+        "archived": item.get("archived"),
+        "disabled": item.get("disabled"),
+        "is_fork": item.get("fork"),
+        "license_key": license_info.get("key"),
+        "topics": ";".join(topics),
+        "visibility": item.get("visibility"),
+        "has_issues": item.get("has_issues"),
+        "has_projects": item.get("has_projects"),
+        "has_wiki": item.get("has_wiki"),
+        "has_pages": item.get("has_pages"),
+    }
+
+
+def collect_repo_sample(
+    session: requests.Session,
+    cfg: CollectorConfig,
+    target_count: int,
+    base_query: str,
+    min_stars: int,
+    max_stars: int,
+) -> List[Dict[str, Any]]:
+    """
+    Лёгкий сбор метаданных большого числа репозиториев через /search/repositories.
+    В отличие от collect_repo (глубокая статистика по паре репо), тут только
+    базовые метаданные, зато можно набрать 10000+ сэмплов в разумное время/лимиты.
+    """
+    logging.info(
+        "Sampling repos: target=%s query=%r stars=[%s..%s]",
+        target_count, base_query, min_stars, max_stars,
+    )
+
+    sample_dir = cfg.out_raw / "sample"
+    ensure_dir(sample_dir)
+
+    seen_ids: set = set()
+    rows: List[Dict[str, Any]] = []
+    page_counter = 0
+
+    bucket_iter = iter_star_range_buckets(session, cfg, base_query, min_stars, max_stars)
+    while len(rows) < target_count:
+        try:
+            lo, hi, count = next(bucket_iter)
+        except StopIteration:
+            break
+        capped = min(count, SEARCH_MAX_RESULTS_PER_QUERY)
+        pages = min(SEARCH_MAX_PAGES, (capped + SEARCH_PER_PAGE - 1) // SEARCH_PER_PAGE)
+        query = f"{base_query} stars:{lo}..{hi}"
+
+        for page in range(1, pages + 1):
+            if len(rows) >= target_count:
+                break
+            params = {
+                "q": query,
+                "sort": "stars",
+                "order": "desc",
+                "per_page": SEARCH_PER_PAGE,
+                "page": page,
+            }
+            data, resp = repo_search_request(session, cfg, params)
+            items = (data or {}).get("items", [])
+            if not items:
+                break
+
+            page_counter += 1
+            save_envelope(
+                sample_dir / f"sample__page{page_counter:04d}.json",
+                data=items,
+                url=resp.url,
+                params=None,
+                resp=resp,
+            )
+
+            for item in items:
+                rid = item.get("id")
+                if rid is None or rid in seen_ids:
+                    continue
+                seen_ids.add(rid)
+                rows.append(flatten_search_repo(item))
+                if len(rows) >= target_count:
+                    break
+
+            if len(items) < SEARCH_PER_PAGE:
+                break
+
+        logging.info(
+            "Bucket stars:%s..%s -> collected so far: %s/%s", lo, hi, len(rows), target_count
+        )
+
+    logging.info("Collected %s unique repositories via search sampling.", len(rows))
+    return rows
+
+
 #метаданные
 
 def collect_repo(session: requests.Session, repo: str, cfg: CollectorConfig) -> Dict[str, Any]:
@@ -440,10 +617,24 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("-v", "--verbose", action="store_true", help="Verbose logs.")
     p.add_argument("--raw-dir", default=str(DEFAULT_DATA_DIR / "raw"))
     p.add_argument("--processed-dir", default=str(DEFAULT_DATA_DIR / "processed"))
+    p.add_argument(
+        "--sample-size",
+        type=int,
+        default=0,
+        help="Собрать N репозиториев через Search API для широкого датасета (0 = выкл, напр. 10000).",
+    )
+    p.add_argument(
+        "--sample-query",
+        default="is:public",
+        help="Базовый поисковый запрос для сэмплинга (в дополнение к stars:LO..HI).",
+    )
+    p.add_argument("--sample-min-stars", type=int, default=1)
+    p.add_argument("--sample-max-stars", type=int, default=1_000_000)
     return p.parse_args()
 
 
 def main() -> None:
+    load_dotenv(PROJECT_ROOT / ".env")
     args = parse_args()
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO, format="%(levelname)s: %(message)s")
 
@@ -460,6 +651,10 @@ def main() -> None:
         period_days=max(args.period_days, 1),
         timeout_s=max(args.timeout, 5),
         verbose=args.verbose,
+        sample_size=max(args.sample_size, 0),
+        sample_query=args.sample_query,
+        sample_min_stars=max(args.sample_min_stars, 1),
+        sample_max_stars=max(args.sample_max_stars, args.sample_min_stars),
     )
     ensure_dir(cfg.out_raw)
     ensure_dir(cfg.out_processed)
@@ -474,6 +669,23 @@ def main() -> None:
 
     write_summary_csv(summary_rows, cfg.out_processed / "summary.csv")
     safe_write_json(cfg.out_processed / "summary.json", {"collected_at": iso_z(utc_now()), "data": summary_rows})
+
+    if cfg.sample_size > 0:
+        logging.info("=== Collecting repo sample (target=%s) ===", cfg.sample_size)
+        sample_rows = collect_repo_sample(
+            session,
+            cfg,
+            cfg.sample_size,
+            cfg.sample_query,
+            cfg.sample_min_stars,
+            cfg.sample_max_stars,
+        )
+        write_summary_csv(sample_rows, cfg.out_processed / "sample.csv")
+        safe_write_json(
+            cfg.out_processed / "sample.json",
+            {"collected_at": iso_z(utc_now()), "count": len(sample_rows), "data": sample_rows},
+        )
+        logging.info("Sample dataset -> %s rows (%s)", len(sample_rows), cfg.out_processed / "sample.csv")
 
     logging.info("Done. Raw -> %s | Processed -> %s", cfg.out_raw.resolve(), cfg.out_processed.resolve())
 
